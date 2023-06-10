@@ -1,0 +1,79 @@
+header {
+    background-image: url('/assets/img/Desktop-header-background.png');
+    background-position: top;
+    background-size: auto 100%;
+}
+
+.disabled-link {
+    pointer-events: none;
+    color: gray;
+    cursor: default;
+  }
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+li :hover {
+    color: #e7b10a;
+    text-shadow: 3px 2px 3px rgba(0,0,0,0.8);
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.person-circle {
+    width: 35px;
+    height: 35px;
+}
+
+@media (min-width: 992px) {
+    ul {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 1024px) {
+    ul {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1200px) {
+    ul {
+        font-size: 1.3rem;
+    }
+}
+
+@media (min-width: 1400px) {
+    ul {
+        font-size: 1.4rem;
+    }
+}
+
+@media (min-width: 1920px) {
+    header {
+        background-size: 100% 100%;
+    }
+
+    ul {
+        font-size: 1.5rem;
+    }
+
+    li {
+        margin-left: 50px !important;
+        margin-right: 50px !important;
+    }
+
+    .li-gest {
+        margin-right: 10px !important;
+    }
+
+    .li-img {
+        margin-left: 10px !important;
+    }
+}

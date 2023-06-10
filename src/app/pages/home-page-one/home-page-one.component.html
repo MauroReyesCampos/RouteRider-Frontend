@@ -1,0 +1,65 @@
+<section class="mobile-view position-relative w-100" *ngIf="windowService.isMobileView">
+    <div class="position-relative">
+        <img class="image" src="/assets/img/image5.jpg" alt="">
+        <img class="image" src="/assets/img/image6.jpg" alt="">
+        <img class="image" src="/assets/img/image4.jpg" alt="">
+        <img class="image" src="/assets/img/image2.jpg" alt="">
+        <img class="image" src="/assets/img/image7.jpg" alt="">
+    </div>
+    <img class="arrow1" src="/assets/img/arrow.png" alt="">
+    <img class="arrow2" src="/assets/img/arrow.png" alt="">
+    <img class="arrow3" src="/assets/img/arrow.png" alt="">
+    <img class="arrow4" src="/assets/img/arrow.png" alt="">
+    <div class="route-container">
+        <a routerLink="/routes"><h5 class="routes">RUTAS DESTACADAS</h5></a>
+        <p>Aquí encontraras las rutas imperdibles que debes realizar.</p>
+    </div>
+    <a routerLink="/login" [ngClass]="{'disabled-link': loggedinUserName !== 'Invitado'}"><h5 class="login">INICIO DE SESIÓN</h5></a>
+    <div class="register-container">
+        <a routerLink="/register"><h5 class="register">REGISTRO</h5></a>
+        <p>Al registrarte podrás pertenecer a esta gran comunidad y compartir tus aventuras.</p>
+    </div>
+    <a href=""><h5 class="contact">CONTACTO</h5></a>
+    <app-mobile-footer class="w-100"></app-mobile-footer>
+</section>
+
+<!-- vista desktop -->
+<section class="desktop-view position-fixed" *ngIf="!windowService.isMobileView">
+    <div class="row w-100 mx-0">
+        <div class="col-4">
+            <h2 class="z-n1">RUTAS DESTACADAS</h2>
+            <a routerLink="/routes"><img class="z-1" src="/assets/img/image5.jpg" alt="image5"></a>
+        </div>
+        <div class="col-4">
+            <h2 class="z-n1">INICIO DE SESIÓN</h2>
+            <a routerLink="/login" [ngClass]="{'disabled-link': loggedinUserName !== 'Invitado'}"><img class="z-1" src="/assets/img/image6.jpg" alt="image6"></a>
+        </div>
+        <div class="col-4">
+            <video src="/assets/videos/videoHome1.mp4" type="video/mp4" autoplay mute loop></video>
+        </div>
+        <div class="col-4">
+            <video src="/assets/videos/videoHome2.mp4" type="video/mp4" autoplay mute loop></video>
+        </div>
+        <div class="col-4">
+            <h2 class="z-n1">REGISTRO</h2>
+            <a routerLink="/register"><img src="/assets/img/image4.jpg" alt="image4"></a>
+        </div>
+        <div class="col-4">
+            <h2 class="z-n1">CONTACTO</h2>       
+            <a href=""><img src="/assets/img/image7.jpg" alt="image7"></a>
+        </div>
+    </div>
+    <!-- <div class="row w-100 mx-lg-0">
+        <div class="col-4">
+            <video src="/assets/videos/videoHome2.mp4" type="video/mp4" autoplay mute loop></video>
+        </div>
+        <div class="col-4">
+            <h2 class="z-n1">REGISTRO</h2>
+            <a href=""><img src="/assets/img/image4.jpg" alt="image4"></a>
+        </div>
+        <div class="col-4">
+            <h2 class="z-n1">CONTACTO</h2>       
+            <a href=""><img src="/assets/img/image7.jpg" alt="image7"></a>
+        </div>
+    </div> -->
+</section>

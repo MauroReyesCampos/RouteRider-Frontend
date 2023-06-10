@@ -1,0 +1,14 @@
+h6 {
+    font-size: 12px;
+}
+
+@media (min-width: 576px) {
+    h6 {
+        font-size: 1.2rem;
+    }
+
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
+}

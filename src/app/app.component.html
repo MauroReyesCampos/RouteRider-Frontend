@@ -1,0 +1,16 @@
+<!-- header y footer para vista movil -->
+<div *ngIf="windowService.isMobileView">
+    <app-mobile-header class="position-absolute top-0 z-1 w-100"></app-mobile-header>
+    <!-- <app-mobile-header class="z-1"></app-mobile-header> -->
+    <router-outlet></router-outlet>
+    <!-- <app-mobile-footer></app-mobile-footer> -->
+</div>
+
+<!-- header y footer para vista desktop -->
+<div *ngIf="!windowService.isMobileView">
+    <!-- Abrir todos los componentes - intermediario entre el index.html y los componentes -->
+<app-desktop-header class="position-fixed top-0 w-100 z-1" [ocultarLista] = "listoocu"></app-desktop-header>
+<!--es el link de lo que se coloca en el app routing, -->
+<router-outlet></router-outlet>
+<app-desktop-footer class="position-fixed bottom-0 w-100"></app-desktop-footer>
+</div>

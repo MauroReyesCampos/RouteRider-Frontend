@@ -1,0 +1,29 @@
+.btn {
+    background: #e7b10a;
+    border-color: #e7b10a;
+    color: black;
+}
+
+.text-area {
+    background-color: #f7f1e5;
+    opacity: .5;
+}
+
+h5 {
+    font-size: 1rem;
+}
+
+p {
+    font-size: 1.1rem;
+}
+
+@media (min-width: 576px) {
+    h5, h6, h4 {
+        font-size: 1.3rem;
+    }
+
+    p, label, .text-area {
+        font-size: 1.3rem;
+    }
+}
+

@@ -1,0 +1,130 @@
+.disabled-link {
+    pointer-events: none;
+    color: gray;
+    cursor: default;
+}
+
+.mobile-view {
+    background-color: #f7f1e5;
+}
+
+.image {
+    width: 100%;
+    height: auto;
+}
+
+.arrow1, .arrow2, .arrow3, .arrow4 {
+    width: 100%;
+    position: absolute;
+}
+
+.arrow1 {
+    top: 17%;
+}
+
+.arrow2 {
+    top: 35%;
+}
+
+.arrow3 {
+    top: 55%;
+}
+
+.arrow4 {
+    top: 75%;
+}
+
+h5 {
+    font-weight: bold;
+    margin: 0;
+    width: 100%;
+    text-align: center;
+}
+
+p {
+    font-size: 15px;
+    width: 100%;
+    text-align: center;
+}
+
+a {
+    text-decoration: none;
+    color:black;
+}
+
+.route-container {
+    position: absolute;
+    top: 18%;
+    width: 100%;
+}
+
+.login {
+    position: absolute;
+    top: 37%;
+}
+
+.register-container {
+    position: absolute;
+    top: 55%;
+    width: 100%;
+}
+
+.contact {
+    position: absolute;
+    top: 77%;
+}
+
+
+@media (min-width: 768px) {
+    h5 {
+        font-size: 2rem;
+    }
+
+    p {
+        font-size: 1.5rem;
+    }
+
+    .register-container {
+        top: 56%;
+    }
+}
+
+
+@media (min-width: 992px) {
+    section {
+        top: 10vh;
+        background-color: #e7b10a;
+    }
+    
+    img, video {
+        z-index: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        margin: 0;
+        object-fit: cover;
+    }
+    
+    .row {
+        height: 100%;
+    }
+    
+    .col-4 {
+        padding: 0;
+        position: relative;
+    }
+    
+    h2 {
+        color: white;
+        font-weight: bold;
+        top: 50%;
+        text-align: center;
+        position: absolute;
+        width: 100%;
+    }
+    
+    a:hover {
+    opacity: 20%;
+    transition: .3s;
+    }
+}

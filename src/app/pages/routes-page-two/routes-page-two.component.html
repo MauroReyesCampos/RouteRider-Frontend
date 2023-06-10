@@ -1,0 +1,29 @@
+<section class="w-100 h-100 position-absolute">
+  <!-- imgen de fondo -->
+  <div class="background-img z-n1 position-fixed top-0"></div>
+  <h2 class="pt-2 pt-sm-3 pb-lg-4">RUTAS DESTACADAS</h2>
+  <div class="row row-cols-1 row-cols-lg-2 w-100 mx-0">
+    <!-- columna izquierda -->
+    <div class="col px-2 px-sm-3 px-lg-5 pb-3">
+      <!-- componente map-component -->
+      <app-map-component (markerClicked)="onMarkerClick($event)"></app-map-component>
+    </div>
+    <div class="col px-2 px-sm-3 pe-lg-5 pb-lg-3">
+      <div class="info rounded-3">
+        <h3 class="mobile-title pt-1">{{ selectedTitle }}</h3>
+        <img class="rounded-3 w-100" [src]="selectedImage" alt="Imagen del marcador">
+        <h3 class="desktop-title pt-lg-4">{{ selectedTitle }}</h3>
+        <p class="pt-2">{{ selectedDescription }}</p>
+        <h4 class="pt-lg-4">Geografía y clima</h4>
+        <p>{{ selectedGeography }}</p>
+        <h4 class="pt-lg-4">Atractivos</h4>
+        <p>{{ selectedAttractions }}</p>
+      </div>
+    </div>
+  </div>
+  <!-- comentarios -->
+  <div class="comments-container mt-lg-5 px-2 d-flex justify-content-center">
+    <app-coments-box class="coments-box mb-5 rounded-3 pt-2 px-2"></app-coments-box>
+  </div>
+  <app-mobile-footer class="mobile-footer"></app-mobile-footer>
+</section>
