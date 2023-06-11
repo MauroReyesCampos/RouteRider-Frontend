@@ -15,7 +15,6 @@ interface Comment {
 })
 export class ComentsBoxComponent implements OnDestroy {
   loggedinUserName!: string | null;
-  dataDate!: Date;
   getSharedIndex!: number;
   private indexSubscription!: Subscription;
   commentData!: any;
@@ -25,7 +24,8 @@ export class ComentsBoxComponent implements OnDestroy {
 
   constructor(private commentServices: CommentservicesService) {
     this.indexSubscription = this.commentServices.getSharedIndex().subscribe((index: any) => {
-      this.getSharedIndex = index;
+      // this.getSharedIndex = index;
+      this.getComments(index);
     })
   }
 
@@ -33,7 +33,7 @@ export class ComentsBoxComponent implements OnDestroy {
   // newComment: Comment = { author: '', message: '', date: this.today.toLocaleString() };
 
   ngOnInit() {
-    this.getComments();
+    // this.getComments();
     this.loggedinUserName = localStorage.getItem('userName');
   }
 
@@ -48,8 +48,8 @@ export class ComentsBoxComponent implements OnDestroy {
     this.indexSubscription.unsubscribe();
   }
 
-  getComments() {
-  this.commentServices.get(this.getSharedIndex).subscribe(
+  getComments(index: number) {
+  this.commentServices.get(index).subscribe(
     (response: any) => {
       this.commentData = response;
       this.userFullname = this.commentData.userLastname;
