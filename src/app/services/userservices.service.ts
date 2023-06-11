@@ -47,6 +47,7 @@ export class UserservicesService {
   logout(): void {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
+    localStorage.removeItem("userLastName");
   }
 
   create(firstName: string, lastName: string, email: string, password: string, birthday: string, phone: number, motorcycle: boolean, brand: string, model: string, type: string, year: number): void {

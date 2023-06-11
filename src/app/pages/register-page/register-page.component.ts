@@ -16,7 +16,6 @@ export class RegisterPageComponent implements OnInit {
   userBirthday!: string;
   userPhone!: number;
   userMotorcycle!: boolean;
-  motorcycleYes!: boolean;
   userMotorcycleBrand!: string;
   userMotorcycleModel!: string;
   userMotorcycleType!: string;
@@ -53,7 +52,6 @@ export class RegisterPageComponent implements OnInit {
       motorcycleType.disabled = true;
       motorcycleYear.disabled = true;
       this.userMotorcycle = false;
-      console.log(this.userMotorcycle);
     }
   }
 

@@ -1,6 +1,6 @@
-import { Component, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, ChangeDetectorRef } from '@angular/core';
 import { Subscription } from 'rxjs';
-import { CommentservicesService } from 'src/app/services/commentservices.service'
+import { CommentservicesService } from 'src/app/services/commentservices.service';
 
 interface Comment {
   author: string;
@@ -20,28 +20,35 @@ export class ComentsBoxComponent implements OnDestroy {
   commentData!: any;
   userFullname!: string;
   userComment!: string;
-  commentDate!: string;
+  commentRoute!: any;
+  firstName!: any | null;
+  lastName!: any | null;
 
-  constructor(private commentServices: CommentservicesService) {
-    this.indexSubscription = this.commentServices.getSharedIndex().subscribe((index: any) => {
-      // this.getSharedIndex = index;
-      this.getComments(index);
-    })
+  constructor(
+    private commentServices: CommentservicesService,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
+    this.indexSubscription = this.commentServices
+      .getSharedIndex()
+      .subscribe((index: any) => {
+        this.commentRoute = index;
+        this.getComments(index);
+      });
   }
 
   // comments: Comment[] = [];
   // newComment: Comment = { author: '', message: '', date: this.today.toLocaleString() };
 
   ngOnInit() {
-    // this.getComments();
+    this.getComments(this.commentRoute);
     this.loggedinUserName = localStorage.getItem('userName');
   }
 
   ngDoCheck() {
     this.loggedinUserName = localStorage.getItem('userName');
-    if(!this.loggedinUserName) {
+    if (!this.loggedinUserName) {
       this.loggedinUserName = 'Invitado';
-    };
+    }
   }
 
   ngOnDestroy() {
@@ -49,18 +56,31 @@ export class ComentsBoxComponent implements OnDestroy {
   }
 
   getComments(index: number) {
-  this.commentServices.get(index).subscribe(
-    (response: any) => {
-      this.commentData = response;
-      this.userFullname = this.commentData.userLastname;
-      this.userComment = this.commentData.userComment;
-      this.commentDate = this.commentData.commentDate;
-      console.log("response ", this.commentData);
-    },
-    (error) => {
-      console.log("error ", error);
-    }
-  );
+    this.commentServices.get(index).subscribe(
+      (response: any) => {
+        this.commentData = response;
+      },
+      error => {
+        console.log('error ', error);
+      }
+    );
+  }
+
+  createComment(): void {
+    this.firstName = localStorage.getItem('userName');
+    this.lastName = localStorage.getItem('userLastName');
+    this.commentServices
+      .create(
+        this.firstName,
+        this.lastName,
+        this.userComment,
+        this.commentRoute
+      )
+      .subscribe((response: any) => {
+        const newComment = response;
+        this.commentData.push(newComment);
+        this.userComment = '';
+      });
   }
 
   // addComment() {

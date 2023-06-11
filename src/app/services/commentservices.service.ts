@@ -22,37 +22,27 @@ export class CommentservicesService {
   get(route: number) {
     const getUrl = `${this.apiUrl}/${route}`;
     return this.http.get(getUrl);
-
   }
   
-  
-  // create(firstName: string, lastName: string, email: string, password: string, birthday: string, phone: number, motorcycle: boolean, brand: string, model: string, type: string, year: number): void {
-  //   const createUrl = `${this.apiUrl}/create`;
-  //   const formData = {
-  //     firstName: firstName,
-  //     lastName: lastName,
-  //     email: email,
-  //     password: password,
-  //     birthday: birthday,
-  //     phone: phone,
-  //     motorcycle: motorcycle,
-  //     brand: brand,
-  //     model: model,
-  //     type: type,
-  //     year: year,
-  //     registerDate: ''
-  //   }
-  //   this.http.post(createUrl, formData).subscribe(
-  //     (response: any) => {
-  //       localStorage.setItem("userName", response.userFirstName);
-  //       this.router.navigate(['/home']);
-  //     },
-  //     (error) => {
-  //       this.creationErrorSubject.next('El correo eléctronico ya existe');
-  //       console.log("Error: ", error);
-  //     }
-  //   );
-  // }
+  create(firstName: string, lastName: string, comment: string, route: any) {
+    const postUrl = `${this.apiUrl}/create`;
+    const formData = {
+      userName: firstName,
+      userLastname: lastName,
+      userComment: comment,
+      commentRoute: route,
+      commentDate: ''
+    }
+    return this.http.post(postUrl, formData)
+    // .subscribe(
+    //   (response: any) => {
+    //     console.log(response);
+    //   },
+    //   (error) => {
+    //     console.log("Error: ", error);
+    //   }
+    // );
+  }
 }
 
 

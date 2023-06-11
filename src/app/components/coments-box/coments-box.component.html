@@ -5,20 +5,17 @@
         <h6 class="fw-bold">{{comment.userName}} {{comment.userLastname}} | {{ comment.commentDate | date}}</h6>
         <p>{{ comment.userComment }}</p>
       </div>
-</div>
+
     <hr>
-    <!-- <div class="pb-3">
+    <div class="pb-3">
       <h4>Agregar un comentario</h4>
-      <form (ngSubmit)="addComment()">
-        <div>
-          <h3 type="text" [(ngModel)]="newComment.author"></h3>
-        </div>
+      <form (ngSubmit)="createComment()">
         <div>
           <label>Mensaje:</label>
-          <textarea class="text-area w-100" rows="3" [(ngModel)]="newComment.message" name="message" [disabled]="loggedinUserName === 'Invitado'" required></textarea>
+          <textarea class="text-area w-100" rows="3" [(ngModel)]="userComment" name="userComment" [disabled]="loggedinUserName === 'Invitado'" required></textarea>
         </div>
         <button class="btn" type="submit" [disabled]="loggedinUserName === 'Invitado'">PUBLICAR</button>
       </form>
-    </div> -->
-  <!-- </div> -->
+    </div>
+  </div>
   
