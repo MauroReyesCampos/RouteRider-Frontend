@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { CommentservicesService } from 'src/app/services/commentservices.service'
 
 interface Comment {
   author: string;
@@ -11,14 +13,27 @@ interface Comment {
   templateUrl: './coments-box.component.html',
   styleUrls: ['./coments-box.component.css']
 })
-export class ComentsBoxComponent implements OnInit{
+export class ComentsBoxComponent implements OnDestroy {
   loggedinUserName!: string | null;
-  today: Date = new Date();
+  dataDate!: Date;
+  getSharedIndex!: number;
+  private indexSubscription!: Subscription;
+  commentData!: any;
+  userFullname!: string;
+  userComment!: string;
+  commentDate!: string;
 
-  comments: Comment[] = [];
-  newComment: Comment = { author: '', message: '', date: this.today.toLocaleString() };
+  constructor(private commentServices: CommentservicesService) {
+    this.indexSubscription = this.commentServices.getSharedIndex().subscribe((index: any) => {
+      this.getSharedIndex = index;
+    })
+  }
+
+  // comments: Comment[] = [];
+  // newComment: Comment = { author: '', message: '', date: this.today.toLocaleString() };
 
   ngOnInit() {
+    this.getComments();
     this.loggedinUserName = localStorage.getItem('userName');
   }
 
@@ -29,13 +44,30 @@ export class ComentsBoxComponent implements OnInit{
     };
   }
 
-  addComment() {
-    if (this.newComment.message.trim() !== '') {
-      this.comments.push({ ...this.newComment });
-      this.newComment.author = '';
-      this.newComment.message = '';
-    }
+  ngOnDestroy() {
+    this.indexSubscription.unsubscribe();
   }
 
+  getComments() {
+  this.commentServices.get(this.getSharedIndex).subscribe(
+    (response: any) => {
+      this.commentData = response;
+      this.userFullname = this.commentData.userLastname;
+      this.userComment = this.commentData.userComment;
+      this.commentDate = this.commentData.commentDate;
+      console.log("response ", this.commentData);
+    },
+    (error) => {
+      console.log("error ", error);
+    }
+  );
+  }
 
+  // addComment() {
+  //   if (this.newComment.message.trim() !== '') {
+  //     this.comments.push({ ...this.newComment });
+  //     this.newComment.author = '';
+  //     this.newComment.message = '';
+  //   }
+  // }
 }

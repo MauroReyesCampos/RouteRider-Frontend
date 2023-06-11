@@ -60,6 +60,22 @@ input, .motorcycle {
     }
 }
 
+@media (min-width: 768px) {
+
+    .col {
+        display: flex;
+        justify-content: center;
+    }
+
+    .first-column, .second-column {
+        width: 80%;
+    }
+
+    input, span, button, .form-check-label {
+        font-size: 1.5rem;
+    }
+}
+
 
 @media (min-width: 992px) {
     .background-img {
@@ -76,15 +92,24 @@ input, .motorcycle {
         width: 100%;
     }
 
+    .first-column, .second-column {
+        width: 70%;
+    }
+
     .input-container {
         padding-bottom: 25px;
     }
 
-    .mobile-footer {
-        display: none;
+    input, span, button, .form-check-label {
+        font-size: 1.2rem;
     }
 
-    col {
-        width: 70%;
+    .btn {
+        width: 50%;
+    }
+    
+
+    .mobile-footer {
+        display: none;
     }
 }

@@ -8,7 +8,7 @@ header {
     pointer-events: none;
     color: gray;
     cursor: default;
-  }
+}
 
 ul {
     list-style: none;
@@ -34,6 +34,11 @@ li :hover {
 @media (min-width: 992px) {
     ul {
         font-size: 1rem;
+    }
+
+    .dropdown-menu, .dropdown-item {
+        background-color: #F7F1E5;
+        border-color: #F7F1E5;
     }
 }
 

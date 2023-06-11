@@ -2,17 +2,17 @@
       <div class="row w-100">
         <div class="col-5">
           <ul  class="no-visible d-flex mt-5 mb-5" *ngIf="!ocultarLista">
-            <li class="mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="home">Inicio</a></li>
-            <li class="mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="routes">Rutas destacadas</a></li>
-            <li class="mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="login" [ngClass]="{'disabled-link': loggedinUserName !== 'Invitado'}">Inicio de sesión</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="home">Inicio</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="routes">Rutas destacadas</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="login" [ngClass]="{'disabled-link': loggedinUserName !== 'Invitado'}">Inicio de sesión</a></li>
           </ul>
         </div>
         <div class="col-2"></div>
         <div class="col-3">
           <ul class="no-visible d-flex mt-5 mb-5" *ngIf="!ocultarLista">
-            <li class="mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="register">Registro</a></li>
-            <li class="mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a href="/">Contacto</a></li>
-            <li class="mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a href="/"></a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="register">Registro</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a href="/">Contacto</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a href="/"></a></li>
           </ul>
         </div>
         <div class="col-2">
@@ -26,7 +26,7 @@
           </ul>
           <ng-template #userName>
             <div class="dropdown">
-              <a href="#" data-bs-toggle="dropdown" aria-expanded="false">{{loggedinUserName}}</a>
+              <a data-bs-toggle="dropdown" aria-expanded="false">{{loggedinUserName}}</a>
               <ul class="ul dropdown-menu dropdown-menu-end text-center">
                 <li><a class="dropdown-item" routerLink="/login">Perfil</a></li>
                 <li><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>

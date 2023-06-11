@@ -14,6 +14,7 @@ export class UserservicesService {
   creationError$: Observable<string> = this.creationErrorSubject.asObservable();
 
   loggedinUserName!: string | null;
+  errorMessage: string = '';
 
   constructor(private http: HttpClient, private router: Router) { }
 
@@ -27,6 +28,7 @@ export class UserservicesService {
       (response: any) => {
         localStorage.setItem("token", response.token);
         localStorage.setItem("userName", response.userFirstName);
+        localStorage.setItem("userLastName", response.userLastName);
         this.router.navigate(['/home']);
       },
       (error) => {
@@ -91,6 +93,10 @@ export class UserservicesService {
         }
       }
     );
+  }
+
+  clearErrorMessage(): void {
+    this.errorMessage = '';
   }
 
   private getAuthHeaders():HttpHeaders{

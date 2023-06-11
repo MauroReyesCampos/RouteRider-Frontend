@@ -1,6 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
-import { Router } from '@angular/router';
-
+import { Component, Input } from '@angular/core';
 @Component({
   selector: 'app-routes-page-two',
   templateUrl: './routes-page-two.component.html',
@@ -12,7 +10,6 @@ export class RoutesPageTwoComponent {
   public selectedDescription: string | undefined;
   public selectedGeography: string | undefined;
   public selectedAttractions: string | undefined;
-
   markerData: any;
 
   // Verificar si el ancho del viewport para mostrar la vista movil o la desktop

@@ -1,4 +1,5 @@
 import { Component, OnInit, Output, Input, EventEmitter } from '@angular/core';
+import { CommentservicesService } from 'src/app/services/commentservices.service'
 
 declare const google: any;
 
@@ -13,6 +14,8 @@ export class MapComponentComponent implements OnInit {
 
   @Output() markerClicked: EventEmitter<number> = new EventEmitter<number>();
   zoom!: number;
+
+  constructor(private commentServices: CommentservicesService) {}
   
   ngOnInit() {
     // Inicializa el mapa
@@ -61,6 +64,7 @@ export class MapComponentComponent implements OnInit {
       // Agregar evento que muestra la info del lugar selecionado en el mapa al hacer click en un marcador
       newMarker.addListener('click', () => {
         this.markerClicked.emit(index);
+        this.sendIndex(index);
       });
       // Agregar evento para mostrar el título al pasar el cursor sobre el marcador
       newMarker.addListener('mouseover', function() {
@@ -76,6 +80,12 @@ export class MapComponentComponent implements OnInit {
       });
     });
   };
+
+  sendIndex(index: number) {
+    const sendIndex = index;
+    this.commentServices.setSharedIndex(sendIndex);
+    console.log("send ", sendIndex);
+  }
 }
 
 

@@ -6,7 +6,7 @@ import { UserservicesService } from 'src/app/services/userservices.service';
   templateUrl: './register-page.component.html',
   styleUrls: ['./register-page.component.css']
 })
-export class RegisterPageComponent {
+export class RegisterPageComponent implements OnInit {
   userFirstName!: string;
   userLastName!: string;
   userEmail!: string;
@@ -27,7 +27,7 @@ export class RegisterPageComponent {
   constructor(private userService: UserservicesService) {}
 
   ngOnInit() {
-    // this.clearErrorMessage();
+    this.errorMessage ='';
     this.userService.creationError$.subscribe((errorMessage: string) => {
       this.errorMessage = errorMessage;
     });

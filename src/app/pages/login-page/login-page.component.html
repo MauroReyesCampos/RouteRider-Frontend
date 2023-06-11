@@ -9,10 +9,10 @@
                 <h2 class="mt-3 mb-3 mb-sm-4 fw-bold w-100 text-center">INICIO DE SESIÓN</h2>
                 <div class="alert alert-danger fw-bold text-center" role="alert" *ngIf="errorMessage">{{errorMessage}}</div>
                 <div class="mb-4 mb-sm-5">
-                    <input type="email" class="form-control" name="userEmail" placeholder="Correo eléctronico" [(ngModel)]="userEmail" (input)="clearErrorMessage()" required>
+                    <input type="email" class="form-control" name="userEmail" placeholder="Correo eléctronico" id="userEmail" [(ngModel)]="userEmail" (input)="clearErrorMessage()" required>
                 </div>
                 <div class="mb-4 mb-sm-5">
-                    <input type="password" class="form-control" name="UserPassword" placeholder="Contraseña" [(ngModel)]="userPassword" (input)="clearErrorMessage()" required>
+                    <input type="password" class="form-control" name="UserPassword" placeholder="Contraseña" id="UserPassword" [(ngModel)]="userPassword" (input)="clearErrorMessage()" required>
                 </div>
                 <button type="submit" class="btn" [disabled]="!loginForm.form.valid">INGRESAR</button>
                 <a href=""><div id="emailHelp" class="form-text fw-bold">¿Olvidaste tu contraseña?.</div></a>
