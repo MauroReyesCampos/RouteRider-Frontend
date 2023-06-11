@@ -52,6 +52,21 @@ a {
     font-size: 1rem;
 }
 
+.modal-content {
+    background-color: #F7F1E5;
+}
+
+.modal-input {
+    background-color: #ffffff;
+}
+
+.birthday {
+    border-top: 2px solid #4C4B16;
+    border-left: 2px solid #4C4B16;
+    border-bottom: 2px solid #4C4B16;
+    background-color: #ffffff;
+}
+
 
 @media (min-width: 576px) {
     input, .btn {

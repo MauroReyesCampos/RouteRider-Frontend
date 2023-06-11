@@ -12,6 +12,8 @@ export class UserservicesService {
   authenticationError$: Observable<string> = this.authenticationErrorSubject.asObservable();
   private creationErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   creationError$: Observable<string> = this.creationErrorSubject.asObservable();
+  private getErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  getError$: Observable<string> = this.getErrorSubject.asObservable();
 
   loggedinUserName!: string | null;
   errorMessage: string = '';
@@ -36,7 +38,7 @@ export class UserservicesService {
           if(error.error instanceof ErrorEvent) {
             console.log("Error:", error.error.message);
           }
-          this.authenticationErrorSubject.next('Usuario o contraseña incorrectos');
+          this.authenticationErrorSubject.next('Correo electrónico y/o contraseña incorrectos');
         } else {
           console.error(`Codigo de error ${error.status}` + `mensaje: ${error.error}`);
         }
@@ -78,23 +80,18 @@ export class UserservicesService {
     );
   }
 
-  userData(userEmail: string): any {
-    const userUrl = `${this.apiUrl}/${userEmail}`;
-    this.http.get(userUrl).subscribe(
-      (response: any) => {
-        localStorage.setItem("userName", response.user.firstName);
-      },
-      (error) => {
-        if(error instanceof HttpErrorResponse) {
-          if(error.error instanceof ErrorEvent) {
-            console.log("Error:", error.error.message);
-          }
-        } else {
-          console.error(`Codigo de error ${error.status}` + `mensaje: ${error.error}`);
-        }
-      }
-    );
-  }
+  // getUserData(userEmail: string) {
+  //   const userUrl = `${this.apiUrl}/${userEmail}`;
+  //   this.http.get(userUrl).subscribe(
+  //     (response: any) => {
+  //       return response;
+  //     },
+  //     (error) => {
+  //       this.getErrorSubject.next('Correo eléctronico no existe');
+  //       console.log(error);
+  //     }
+  //   );
+  // }
 
   clearErrorMessage(): void {
     this.errorMessage = '';

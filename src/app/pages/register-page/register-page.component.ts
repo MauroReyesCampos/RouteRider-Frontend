@@ -26,7 +26,6 @@ export class RegisterPageComponent implements OnInit {
   constructor(private userService: UserservicesService) {}
 
   ngOnInit() {
-    this.errorMessage ='';
     this.userService.creationError$.subscribe((errorMessage: string) => {
       this.errorMessage = errorMessage;
     });

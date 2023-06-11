@@ -34,14 +34,6 @@ export class CommentservicesService {
       commentDate: ''
     }
     return this.http.post(postUrl, formData)
-    // .subscribe(
-    //   (response: any) => {
-    //     console.log(response);
-    //   },
-    //   (error) => {
-    //     console.log("Error: ", error);
-    //   }
-    // );
   }
 }
 
