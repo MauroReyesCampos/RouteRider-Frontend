@@ -15,7 +15,7 @@ export class RegisterPageComponent implements OnInit {
   passwordConfirmed!:string;
   userBirthday!: string;
   userCity!: string;
-  userMotorcycle!: boolean;
+  userMotorcycle!: string;
   userMotorcycleBrand!: string;
   userMotorcycleModel!: string;
   userMotorcycleType!: string;

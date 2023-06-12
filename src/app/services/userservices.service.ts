@@ -52,7 +52,7 @@ export class UserservicesService {
     localStorage.removeItem("userLastName");
   }
 
-  create(firstName: string, lastName: string, email: string, password: string, birthday: string, city: string, motorcycle: boolean, brand: string, model: string, type: string, year: string): void {
+  create(firstName: string, lastName: string, email: string, password: string, birthday: string, city: string, motorcycle: string, brand: string, model: string, type: string, year: string): void {
     const createUrl = `${this.apiUrl}/create`;
 
     const formData = {
