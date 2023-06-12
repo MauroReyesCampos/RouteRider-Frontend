@@ -10,7 +10,7 @@ export class ProfilePageComponent {
   userName!: string | null;
   userLastName!: string | null;
   loginUserData!: any;
-  editUserProfile: boolean = false;
+
 
   constructor(private userService: UserservicesService) { }
 
@@ -21,17 +21,37 @@ export class ProfilePageComponent {
   }
 
 
-  editProfile(){
-    this.editUserProfile = true;
+  editProfile() {
+    const firstName = document.getElementById('userFirstName') as HTMLInputElement;
+    const lastName = document.getElementById('userLastName') as HTMLInputElement;
+    const email = document.getElementById('userEmail') as HTMLInputElement;
+    const birthday = document.getElementById('userBirthday') as HTMLInputElement;
+    const city = document.getElementById('userCity') as HTMLInputElement;
+    const radioButtonYes = document.getElementById('motorcycleYes') as HTMLInputElement;
+    const radioButtonNo = document.getElementById('motorcycleNo') as HTMLInputElement;
+    const motorcycleBrand = document.getElementById('userMotorcycleBrand') as HTMLInputElement;
+    const motorcycleModel = document.getElementById('userMotorcycleModel') as HTMLInputElement;
+    const motorcycleType = document.getElementById('userMotorcycleType') as HTMLInputElement;
+    const motorcycleYear = document.getElementById('userMotorcycleYear') as HTMLInputElement;
+
+    firstName.disabled = false;
+    lastName.disabled = false;
+    email.disabled = false;
+    birthday.disabled = false;
+    city.disabled = false;
+    radioButtonYes.disabled = false;
+    radioButtonNo.disabled = false;
+    motorcycleBrand.disabled = false;
+    motorcycleModel.disabled = false;
+    motorcycleType.disabled = false;
+    motorcycleYear.disabled = false;
   }
 
-  getUser(){
+  getUser() {
     this.userService.getUser()
     .subscribe(
       (response:any) => {
-        console.log("response: ",response);
         this.loginUserData = response[0];
-        console.log(this.loginUserData.city)
       },
       (error) => {
         console.log("Error: ", error);
@@ -39,4 +59,7 @@ export class ProfilePageComponent {
     )
   }
 
+  updateProfile() {
+    this.userService.updateUser(this.loginUserData)
+  }
 }

@@ -19,7 +19,7 @@ export class RegisterPageComponent implements OnInit {
   userMotorcycleBrand!: string;
   userMotorcycleModel!: string;
   userMotorcycleType!: string;
-  userMotorcycleYear!: number;
+  userMotorcycleYear!: string;
   errorMessage: string = '';
 
 
@@ -32,28 +32,23 @@ export class RegisterPageComponent implements OnInit {
   }
 
   motorcycleChequed(): void {
-    const radioButtonYes = document.getElementById('motorcycleYes') as HTMLInputElement;
-    const radioButtonNo = document.getElementById('motorcycleYes') as HTMLInputElement;
+    const motorcycleChecked = document.getElementById('userMotorcycleYes') as HTMLInputElement;
     const motorcycleBrand = document.getElementById('userMotorcycleBrand') as HTMLInputElement;
     const motorcycleModel = document.getElementById('userMotorcycleModel') as HTMLInputElement;
     const motorcycleType = document.getElementById('userMotorcycleType') as HTMLInputElement;
     const motorcycleYear = document.getElementById('userMotorcycleYear') as HTMLInputElement;
 
-    if(!radioButtonYes.checked && !radioButtonNo.checked) {
-      this.userMotorcycle = false;
-    } else if(radioButtonYes.checked) {
-      motorcycleBrand.disabled = false;
-      motorcycleModel.disabled = false;
-      motorcycleType.disabled = false;
-      motorcycleYear.disabled = false;
-      this.userMotorcycle = true;
-    } else {
-      motorcycleBrand.disabled = true;
-      motorcycleModel.disabled = true;
-      motorcycleType.disabled = true;
-      motorcycleYear.disabled = true;
-      this.userMotorcycle = false;
-    }
+    if(motorcycleChecked.value === "yes") {
+        motorcycleBrand.disabled = false;
+        motorcycleModel.disabled = false;
+        motorcycleType.disabled = false;
+        motorcycleYear.disabled = false;
+      } else {
+        motorcycleBrand.disabled = true;
+        motorcycleModel.disabled = true;
+        motorcycleType.disabled = true;
+        motorcycleYear.disabled = true;
+      }
   }
 
   createUser():void {

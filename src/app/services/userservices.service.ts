@@ -24,7 +24,7 @@ export class UserservicesService {
       email: userEmail,
       password: userPassword
     }
-    this.http.post(loginUrl, formData).subscribe(
+    this.http.post(loginUrl, formData, {headers: this.getAuthHeaders()}).subscribe(
       (response: any) => {
         localStorage.setItem("token", response.token);
         localStorage.setItem("userName", response.userFirstName);
@@ -52,8 +52,9 @@ export class UserservicesService {
     localStorage.removeItem("userLastName");
   }
 
-  create(firstName: string, lastName: string, email: string, password: string, birthday: string, city: string, motorcycle: boolean, brand: string, model: string, type: string, year: number): void {
+  create(firstName: string, lastName: string, email: string, password: string, birthday: string, city: string, motorcycle: boolean, brand: string, model: string, type: string, year: string): void {
     const createUrl = `${this.apiUrl}/create`;
+
     const formData = {
       firstName: firstName,
       lastName: lastName,
@@ -84,6 +85,23 @@ export class UserservicesService {
   getUser() {
     const userUrl = `${this.apiUrl}/?email=${this.loginUserEmail}`;
     return this.http.get(userUrl);
+  }
+
+  updateUser(body: any){
+    const updateUrl = `${this.apiUrl}/update/${body._id}`
+    const formData = body
+
+    console.log("Usuario actualizado con éxito", formData, updateUrl);
+
+    this.http.put(updateUrl,formData)
+    .subscribe(
+      (response:any) => {
+        console.log("Usuario actualizado con éxito. ", response);
+      },
+      (error) => {
+        console.log("Error: ", error);
+      }
+    )
   }
 
   clearErrorMessage(): void {

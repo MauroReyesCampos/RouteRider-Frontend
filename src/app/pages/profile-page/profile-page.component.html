@@ -2,7 +2,7 @@
   <div class="background-img position-fixed z-n1 top-0"></div>
   <div class="profile-form position-absolute">
     <h2 class="pt-4 pb-2 mb-sm-4 fw-bold w-100 text-center">
-      PERFIL DE {{userName | uppercase}} {{userLastName | uppercase}}
+      PERFIL DE USUARIO
     </h2>
     <form class="form mb-5">
       <div class="row row-cols-1 row-cols-lg-2 mx-0">
@@ -14,7 +14,7 @@
                 type="text"
                 class="form-control"
                 name="userFirstName"
-                placeholder="Nombre"
+                id="userFirstName"
                 [(ngModel)]="loginUserData.firstName"
                 disabled
               />
@@ -24,7 +24,7 @@
                 type="text"
                 class="form-control"
                 name="userLastName"
-                placeholder="Apellido"
+                id="userLastName"
                 [(ngModel)]="loginUserData.lastName"
                 disabled
               />
@@ -34,7 +34,7 @@
                 type="email"
                 class="form-control"
                 name="userEmail"
-                placeholder="Correo eléctronico"
+                id="userEmail"
                 [(ngModel)]="loginUserData.email"
                 disabled
               />
@@ -48,7 +48,7 @@
                   type="date"
                   class="form-control"
                   name="userBirthday"
-                  aria-label="userBirthdate"
+                  id="userBirthday"
                   aria-describedby="basic-addon1"
                   [(ngModel)]="loginUserData.birthday"
                   disabled
@@ -57,10 +57,12 @@
             </div>
             <div class="input-container">
               <input
-                type="number"
+                type="text"
                 class="form-control"
-                name="userPhone"
-                placeholder="Ciudad"
+                name="userCity"
+                id="userCity"
+                [(ngModel)]="loginUserData.city"
+                disabled
               />
             </div>
           </div>
@@ -80,6 +82,9 @@
                       type="radio"
                       name="userMotorcycle"
                       id="motorcycleYes"
+                      value="yes"
+                      [(ngModel)]="loginUserData.motorcycle"
+                      disabled
                     />
                     <label class="form-check-label" for="flexRadioDefault1">
                       Sí
@@ -91,6 +96,9 @@
                       type="radio"
                       name="userMotorcycle"
                       id="motorcycleNo"
+                      value="no"
+                      [(ngModel)]="loginUserData.motorcycle"
+                      disabled
                     />
                     <label class="form-check-label" for="flexRadioDefault2">
                       No
@@ -106,6 +114,8 @@
                 name="userMotorcycleBrand"
                 placeholder="Marca"
                 id="userMotorcycleBrand"
+                [(ngModel)]="loginUserData.brand"
+                disabled
               />
             </div>
             <div class="input-container">
@@ -115,6 +125,8 @@
                 name="userMotorcycleModel"
                 placeholder="Referencia"
                 id="userMotorcycleModel"
+                [(ngModel)]="loginUserData.model"
+                disabled
               />
             </div>
             <div class="input-container">
@@ -124,6 +136,8 @@
                 name="userMotorcycleType"
                 placeholder="Tipo de motocicleta"
                 id="userMotorcycleType"
+                [(ngModel)]="loginUserData.type"
+                disabled
               />
             </div>
             <div class="input-container">
@@ -133,18 +147,22 @@
                 name="userMotorcycleYear"
                 placeholder="Modelo"
                 id="userMotorcycleYear"
+                [(ngModel)]="loginUserData.year"
+                disabled
               />
             </div>
             <div class="input-container d-flex justify-content-between">
               <button
                 type="button"
                 class="btn"
+                (click)="editProfile()"
               >
                 EDITAR
               </button>
               <button
                 type="button"
                 class="btn"
+                (click)="updateProfile()"
               >
                 GUARDAR
               </button>
