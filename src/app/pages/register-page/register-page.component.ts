@@ -14,7 +14,7 @@ export class RegisterPageComponent implements OnInit {
   userPasswordConfirm!: string;
   passwordConfirmed!:string;
   userBirthday!: string;
-  userPhone!: number;
+  userCity!: string;
   userMotorcycle!: boolean;
   userMotorcycleBrand!: string;
   userMotorcycleModel!: string;
@@ -33,18 +33,20 @@ export class RegisterPageComponent implements OnInit {
 
   motorcycleChequed(): void {
     const radioButtonYes = document.getElementById('motorcycleYes') as HTMLInputElement;
+    const radioButtonNo = document.getElementById('motorcycleYes') as HTMLInputElement;
     const motorcycleBrand = document.getElementById('userMotorcycleBrand') as HTMLInputElement;
     const motorcycleModel = document.getElementById('userMotorcycleModel') as HTMLInputElement;
     const motorcycleType = document.getElementById('userMotorcycleType') as HTMLInputElement;
     const motorcycleYear = document.getElementById('userMotorcycleYear') as HTMLInputElement;
 
-    if(radioButtonYes.checked) {
+    if(!radioButtonYes.checked && !radioButtonNo.checked) {
+      this.userMotorcycle = false;
+    } else if(radioButtonYes.checked) {
       motorcycleBrand.disabled = false;
       motorcycleModel.disabled = false;
       motorcycleType.disabled = false;
       motorcycleYear.disabled = false;
       this.userMotorcycle = true;
-      console.log(this.userMotorcycle);
     } else {
       motorcycleBrand.disabled = true;
       motorcycleModel.disabled = true;
@@ -59,7 +61,7 @@ export class RegisterPageComponent implements OnInit {
       this.errorMessage = "Las contraseñas ingresadas no coinciden"
     } else {
       this.passwordConfirmed = this.userPasswordConfirm;
-      this.userService.create(this.userFirstName, this.userLastName, this.userEmail, this.passwordConfirmed, this.userBirthday, this.userPhone, this.userMotorcycle, this.userMotorcycleBrand, this.userMotorcycleModel, this.userMotorcycleType, this.userMotorcycleYear);
+      this.userService.create(this.userFirstName, this.userLastName, this.userEmail, this.passwordConfirmed, this.userBirthday, this.userCity, this.userMotorcycle, this.userMotorcycleBrand, this.userMotorcycleModel, this.userMotorcycleType, this.userMotorcycleYear);
     }
 
   }

@@ -1,0 +1,164 @@
+<section class="w-100 z-n1">
+  <div class="background-img position-fixed z-n1 top-0"></div>
+  <div class="profile-form position-absolute">
+    <h2 class="pt-4 pb-2 mb-sm-4 fw-bold w-100 text-center">
+      PERFIL DE {{userName | uppercase}} {{userLastName | uppercase}}
+    </h2>
+    <form class="form mb-5">
+      <div class="row row-cols-1 row-cols-lg-2 mx-0">
+        <!-- first colum imputs -->
+        <div class="col px-lg-5">
+          <div class="first-column">
+            <div class="input-container">
+              <input
+                type="text"
+                class="form-control"
+                name="userFirstName"
+                placeholder="Nombre"
+                [(ngModel)]="loginUserData.firstName"
+                disabled
+              />
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                class="form-control"
+                name="userLastName"
+                placeholder="Apellido"
+                [(ngModel)]="loginUserData.lastName"
+                disabled
+              />
+            </div>
+            <div class="input-container">
+              <input
+                type="email"
+                class="form-control"
+                name="userEmail"
+                placeholder="Correo eléctronico"
+                [(ngModel)]="loginUserData.email"
+                disabled
+              />
+            </div>
+            <div class="input-container">
+              <div class="input-group">
+                <span class="birthday input-group-text" id="basic-addon1"
+                  >Fecha nacimiento</span
+                >
+                <input
+                  type="date"
+                  class="form-control"
+                  name="userBirthday"
+                  aria-label="userBirthdate"
+                  aria-describedby="basic-addon1"
+                  [(ngModel)]="loginUserData.birthday"
+                  disabled
+                />
+              </div>
+            </div>
+            <div class="input-container">
+              <input
+                type="number"
+                class="form-control"
+                name="userPhone"
+                placeholder="Ciudad"
+              />
+            </div>
+          </div>
+        </div>
+        <!-- second colum imputs -->
+        <div class="col px-lg-5">
+          <div class="second-column">
+            <div class="input-container">
+              <div class="motorcycle input-group">
+                <span class="moto-span input-group-text" id="basic-addon1"
+                  >Motocicleta</span
+                >
+                <div class="d-flex align-items-center gap-5 ps-3">
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="userMotorcycle"
+                      id="motorcycleYes"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault1">
+                      Sí
+                    </label>
+                  </div>
+                  <div class="form-check">
+                    <input
+                      class="form-check-input"
+                      type="radio"
+                      name="userMotorcycle"
+                      id="motorcycleNo"
+                    />
+                    <label class="form-check-label" for="flexRadioDefault2">
+                      No
+                    </label>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                class="form-control"
+                name="userMotorcycleBrand"
+                placeholder="Marca"
+                id="userMotorcycleBrand"
+              />
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                class="form-control"
+                name="userMotorcycleModel"
+                placeholder="Referencia"
+                id="userMotorcycleModel"
+              />
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                class="form-control"
+                name="userMotorcycleType"
+                placeholder="Tipo de motocicleta"
+                id="userMotorcycleType"
+              />
+            </div>
+            <div class="input-container">
+              <input
+                type="text"
+                class="form-control"
+                name="userMotorcycleYear"
+                placeholder="Modelo"
+                id="userMotorcycleYear"
+              />
+            </div>
+            <div class="input-container d-flex justify-content-between">
+              <button
+                type="button"
+                class="btn"
+              >
+                EDITAR
+              </button>
+              <button
+                type="button"
+                class="btn"
+              >
+                GUARDAR
+              </button>
+              <button
+                type="button"
+                class="btn"
+              >
+              CANCELAR
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </form>
+    <app-mobile-footer class="mobile-footer w-100 position-absolute bottom-0"></app-mobile-footer>
+  </div>
+</section>

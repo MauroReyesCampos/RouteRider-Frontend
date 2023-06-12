@@ -22,10 +22,6 @@ export class LoginPageComponent implements OnInit {
     this.userService.authenticationError$.subscribe((errorMessage: string) => {
       this.errorMessage = errorMessage;
     });
-
-    this.userService.getError$.subscribe((errorMessage: string) => {
-      this.errorMessage = errorMessage;
-    });
   }
 
   userLogin() {

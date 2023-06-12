@@ -10,7 +10,7 @@
                 </a>
                 <ul class="ul dropdown-menu dropdown-menu-end text-center">
                     <li class="dropdown-item fw-bold">{{loggedinUserName}}</li>
-                    <li><a class="dropdown-item" *ngIf="loggedinUserName !== 'Invitado'" routerLink="/login">Perfil</a></li>
+                    <li><a class="dropdown-item" *ngIf="loggedinUserName !== 'Invitado'" routerLink="/profile">Perfil</a></li>
                     <li><a class="dropdown-item" *ngIf="loggedinUserName !== 'Invitado'" (click)="logout()">Cerrar sesión</a></li>
                 </ul>
             </div>

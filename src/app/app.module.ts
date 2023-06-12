@@ -16,6 +16,7 @@ import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { RegisterPageComponent } from './pages/register-page/register-page.component';
 import { ContactPageComponent } from './pages/contact-page/contact-page/contact-page.component';
 import { ComentsBoxComponent } from './components/coments-box/coments-box.component';
+import { ProfilePageComponent } from './pages/profile-page/profile-page.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +32,8 @@ import { ComentsBoxComponent } from './components/coments-box/coments-box.compon
     LoginPageComponent,
     RegisterPageComponent,
     ContactPageComponent,
-    ComentsBoxComponent
+    ComentsBoxComponent,
+    ProfilePageComponent
   ],
   imports: [
     BrowserModule,

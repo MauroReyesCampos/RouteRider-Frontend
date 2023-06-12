@@ -12,10 +12,8 @@ export class UserservicesService {
   authenticationError$: Observable<string> = this.authenticationErrorSubject.asObservable();
   private creationErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
   creationError$: Observable<string> = this.creationErrorSubject.asObservable();
-  private getErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  getError$: Observable<string> = this.getErrorSubject.asObservable();
 
-  loggedinUserName!: string | null;
+  private loginUserEmail!: string;
   errorMessage: string = '';
 
   constructor(private http: HttpClient, private router: Router) { }
@@ -31,6 +29,8 @@ export class UserservicesService {
         localStorage.setItem("token", response.token);
         localStorage.setItem("userName", response.userFirstName);
         localStorage.setItem("userLastName", response.userLastName);
+        this.loginUserEmail = userEmail;
+        this.getUser();
         this.router.navigate(['/home']);
       },
       (error) => {
@@ -52,7 +52,7 @@ export class UserservicesService {
     localStorage.removeItem("userLastName");
   }
 
-  create(firstName: string, lastName: string, email: string, password: string, birthday: string, phone: number, motorcycle: boolean, brand: string, model: string, type: string, year: number): void {
+  create(firstName: string, lastName: string, email: string, password: string, birthday: string, city: string, motorcycle: boolean, brand: string, model: string, type: string, year: number): void {
     const createUrl = `${this.apiUrl}/create`;
     const formData = {
       firstName: firstName,
@@ -60,7 +60,7 @@ export class UserservicesService {
       email: email,
       password: password,
       birthday: birthday,
-      phone: phone,
+      city: city,
       motorcycle: motorcycle,
       brand: brand,
       model: model,
@@ -71,6 +71,7 @@ export class UserservicesService {
     this.http.post(createUrl, formData).subscribe(
       (response: any) => {
         localStorage.setItem("userName", response.userFirstName);
+        localStorage.setItem("userLastname", response.userLastName);
         this.router.navigate(['/home']);
       },
       (error) => {
@@ -80,18 +81,10 @@ export class UserservicesService {
     );
   }
 
-  // getUserData(userEmail: string) {
-  //   const userUrl = `${this.apiUrl}/${userEmail}`;
-  //   this.http.get(userUrl).subscribe(
-  //     (response: any) => {
-  //       return response;
-  //     },
-  //     (error) => {
-  //       this.getErrorSubject.next('Correo eléctronico no existe');
-  //       console.log(error);
-  //     }
-  //   );
-  // }
+  getUser() {
+    const userUrl = `${this.apiUrl}/?email=${this.loginUserEmail}`;
+    return this.http.get(userUrl);
+  }
 
   clearErrorMessage(): void {
     this.errorMessage = '';

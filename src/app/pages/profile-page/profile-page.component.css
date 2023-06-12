@@ -1,0 +1,107 @@
+.background-img {
+    background: url('/assets/img/image2.jpg');
+    opacity: 0.55;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.profile-form {
+    top: 12%;
+    width: 100%;
+}
+
+input, .motorcycle {
+    border-radius: 8px;
+    border: 2px solid #4C4B16;
+    background-color: #F7F1E5;
+}
+
+.input-container {
+    padding-bottom: 10px;
+}
+
+.birthday {
+    border-top: 2px solid #4C4B16;
+    border-left: 2px solid #4C4B16;
+    border-bottom: 2px solid #4C4B16;
+    background-color: #F7F1E5;
+}
+
+.moto-span {
+    border-right: 2px solid #4C4B16;
+    background-color: #F7F1E5;
+}
+
+.btn {
+    width: 30%;
+    background-color: #e7b10a;
+    border-color: #e7b10a;
+    color: black;
+}
+
+
+@media (min-width: 576px) {
+    .profile-form {
+        top: 16%;
+    }
+
+    input, span, button, .form-check-label {
+        font-size: 1.2rem;
+    }
+
+    .input-container {
+        padding-bottom: 15px;
+    }
+
+    form {
+        padding-bottom: 2rem;
+    }
+}
+
+
+@media (min-width: 768px) {
+
+    .col {
+        display: flex;
+        justify-content: center;
+    }
+
+    .first-column, .second-column {
+        width: 80%;
+    }
+
+    input, span, button, .form-check-label {
+        font-size: 1.5rem;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .profile-form {
+        top: 20%;
+        width: 100%;
+    }
+
+    .first-column, .second-column {
+        width: 70%;
+    }
+
+    .input-container {
+        padding-bottom: 25px;
+    }
+
+    input, span, button, .form-check-label {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        width: 50%;
+    }
+    
+
+    .mobile-footer {
+        display: none;
+    }
+}
