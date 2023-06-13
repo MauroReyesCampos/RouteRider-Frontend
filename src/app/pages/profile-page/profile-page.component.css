@@ -39,6 +39,7 @@ input, .motorcycle {
     background-color: #e7b10a;
     border-color: #e7b10a;
     color: black;
+    font-size: 14px;
 }
 
 
@@ -58,7 +59,13 @@ input, .motorcycle {
     form {
         padding-bottom: 2rem;
     }
+
+    .btn {
+        width: 30%;
+        font-size: 1.2rem;
+    }
 }
+
 
 
 @media (min-width: 768px) {
@@ -97,7 +104,8 @@ input, .motorcycle {
     }
 
     .btn {
-        width: 50%;
+        width: 30%;
+        font-size: 1rem;
     }
     
 

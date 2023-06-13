@@ -24,7 +24,7 @@ export class UserservicesService {
       email: userEmail,
       password: userPassword
     }
-    this.http.post(loginUrl, formData, {headers: this.getAuthHeaders()}).subscribe(
+    this.http.post(loginUrl, formData).subscribe(
       (response: any) => {
         localStorage.setItem("token", response.token);
         localStorage.setItem("userName", response.userFirstName);
@@ -50,6 +50,7 @@ export class UserservicesService {
     localStorage.removeItem("token");
     localStorage.removeItem("userName");
     localStorage.removeItem("userLastName");
+    this.router.navigate(['/home']);
   }
 
   create(firstName: string, lastName: string, email: string, password: string, birthday: string, city: string, motorcycle: string, brand: string, model: string, type: string, year: string): void {
@@ -90,8 +91,6 @@ export class UserservicesService {
   updateUser(body: any){
     const updateUrl = `${this.apiUrl}/update/${body._id}`
     const formData = body
-
-    console.log("Usuario actualizado con éxito", formData, updateUrl);
 
     this.http.put(updateUrl,formData)
     .subscribe(
