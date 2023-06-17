@@ -19,9 +19,9 @@ export class LoginPageComponent implements OnInit {
   constructor(public windowService: WindowService, private userService: UserservicesService) {}
 
   ngOnInit() {
-    this.userService.authenticationError$.subscribe((errorMessage: string) => {
-      this.errorMessage = errorMessage;
-    });
+    // this.userService.authenticationError$.subscribe((errorMessage: string) => {
+    //   this.errorMessage = errorMessage;
+    // });
   }
 
   userLogin() {

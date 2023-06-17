@@ -14,11 +14,11 @@
                 </div>
                 <div class="mb-4 mb-sm-5">
                     <input type="email" class="form-control" name="userEmail" placeholder="Correo electrónico"
-                        id="userEmail" [(ngModel)]="userEmail" (input)="clearErrorMessage()" required />
+                        id="userEmail" [(ngModel)]="userEmail" required />
                 </div>
                 <div class="mb-4 mb-sm-5">
                     <input type="password" class="form-control" name="UserPassword" placeholder="Contraseña"
-                        id="UserPassword" [(ngModel)]="userPassword" (input)="clearErrorMessage()" required />
+                        id="UserPassword" [(ngModel)]="userPassword" required />
                 </div>
                 <button type="submit" class="btn" [disabled]="!loginForm.form.valid">
                     INGRESAR

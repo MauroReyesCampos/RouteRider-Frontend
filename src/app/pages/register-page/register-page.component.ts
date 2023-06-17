@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UserservicesService } from 'src/app/services/userservices.service';
+import swal from 'sweetalert'
 
 @Component({
   selector: 'app-register-page',
@@ -26,9 +27,9 @@ export class RegisterPageComponent implements OnInit {
 
   ngOnInit() {
     this.userMotorcycleCheck();
-    this.userService.creationError$.subscribe((errorMessage: string) => {
-      this.errorMessage = errorMessage;
-    });
+    // this.userService.creationError$.subscribe((errorMessage: string) => {
+    //   this.errorMessage = errorMessage;
+    // });
   }
 
   userMotorcycleCheck(): void {
@@ -70,7 +71,8 @@ export class RegisterPageComponent implements OnInit {
 
   createUser(): void {
     if (this.userPassword !== this.userPasswordConfirm) {
-      this.errorMessage = 'Las contraseñas ingresadas no coinciden';
+      // this.errorMessage = 'Las contraseñas ingresadas no coinciden';
+      swal("Las contraseñas ingresadas no coinciden", "", "error");
     } else {
       this.passwordConfirmed = this.userPasswordConfirm;
       this.userService.create(

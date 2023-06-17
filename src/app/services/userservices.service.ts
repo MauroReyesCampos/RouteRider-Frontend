@@ -2,16 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { BehaviorSubject, Observable } from 'rxjs';
+import swal from 'sweetalert'
 
 @Injectable({
   providedIn: 'root'
 })
 export class UserservicesService {
   private apiUrl = "http://localhost:3000/api/users";
-  private authenticationErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  authenticationError$: Observable<string> = this.authenticationErrorSubject.asObservable();
-  private creationErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
-  creationError$: Observable<string> = this.creationErrorSubject.asObservable();
+  // private authenticationErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  // authenticationError$: Observable<string> = this.authenticationErrorSubject.asObservable();
+  // private creationErrorSubject: BehaviorSubject<string> = new BehaviorSubject<string>('');
+  // creationError$: Observable<string> = this.creationErrorSubject.asObservable();
 
   private loginUserEmail!: string;
   errorMessage: string = '';
@@ -38,7 +39,8 @@ export class UserservicesService {
           if(error.error instanceof ErrorEvent) {
             console.log("Error:", error.error.message);
           }
-          this.authenticationErrorSubject.next('Correo electrónico y/o contraseña incorrectos');
+          // this.authenticationErrorSubject.next('Correo electrónico y/o contraseña incorrectos');
+          swal("Correo electrónico y/o contraseña incorrectos", "", "error");
         } else {
           console.error(`Codigo de error ${error.status}` + `mensaje: ${error.error}`);
         }
@@ -77,7 +79,8 @@ export class UserservicesService {
         this.router.navigate(['/home']);
       },
       (error) => {
-        this.creationErrorSubject.next('El correo eléctronico ya existe');
+        // this.creationErrorSubject.next('El correo eléctronico ya existe');
+        swal("El correo electrónico ingresado ya existe", "", "error");
         console.log("Error: ", error);
       }
     );
