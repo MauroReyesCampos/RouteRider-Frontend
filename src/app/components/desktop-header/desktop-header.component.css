@@ -1,7 +1,7 @@
 header {
     background-image: url('/assets/img/Desktop-header-background.png');
     background-position: top;
-    background-size: auto 100%;
+    background-size: cover;
 }
 
 .disabled-link {
@@ -61,12 +61,12 @@ li :hover {
 }
 
 @media (min-width: 1920px) {
-    header {
+    /* header {
         background-size: 100% 100%;
-    }
+    } */
 
     ul {
-        font-size: 1.5rem;
+        font-size: 1.5rem ;
     }
 
     li {
