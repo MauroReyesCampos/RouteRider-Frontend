@@ -1,0 +1,47 @@
+<header class="mobile-header w-100">
+    <nav class="navbar w-100">
+        <div class="container-fluid">
+            <a class="navbar-brand me-0" href="#">
+                <img class="logo w-100" src="/assets/img/RouteRider_mobile.png" alt="RouteRaider logo">
+            </a>
+            <div class="dropdown">
+                <a class="btn" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <img class="person" src="/assets/icons/person-circle.svg" alt="">
+                </a>
+                <ul class="ul dropdown-menu dropdown-menu-end text-center">
+                    <li class="dropdown-item fw-bold">{{loggedinUserName}}</li>
+                    <li><a class="dropdown-item" *ngIf="loggedinUserName !== 'Invitado'" routerLink="/profile">Perfil</a></li>
+                    <li><a class="dropdown-item" *ngIf="loggedinUserName !== 'Invitado'" (click)="logout()">Cerrar sesión</a></li>
+                </ul>
+            </div>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav text-center">
+                    <li class="nav-item">
+                        <a class="nav-link" aria-current="page" routerLink="/home" (click)="navBarCollapse()">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/routes" (click)="navBarCollapse()">Rutas Destacadas</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/login" (click)="navBarCollapse()" [ngClass]="{'disabled-link': loggedinUserName !== 'Invitado'}">Inicio de sesión</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/register" (click)="navBarCollapse()">Registro</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" routerLink="/contact" (click)="navBarCollapse()">Contacto</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href=""><img class="icon" src="/assets/icons/facebook.svg" alt="facebook"></a>
+                        <a href=""><img class="icon" src="/assets/icons/instagram.svg" alt="instagram"></a>
+                        <a href=""><img class="icon" src="/assets/icons/tiktok.svg" alt="instagram"></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>

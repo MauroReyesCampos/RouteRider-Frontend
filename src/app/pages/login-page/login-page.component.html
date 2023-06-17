@@ -1,0 +1,75 @@
+<section class="w-100 z-n1">
+    <div class="background-img position-fixed z-n1 top-0"></div>
+    <div class="row row-cols-1 row-cols-lg-2 position-absolute">
+        <div class="img-col col text-center px-0 mx-0">
+            <img class="w-50" src="/assets/img/RouteRider5.png" alt="logo" />
+        </div>
+        <div class="col d-flex flex-column align-items-center px-0 mx-0">
+            <form class="form z-1" (ngSubmit)="userLogin()" #loginForm="ngForm">
+                <h2 class="mt-3 mb-3 mb-sm-4 fw-bold w-100 text-center">
+                    INICIO DE SESIÓN
+                </h2>
+                <!-- <div class="alert alert-danger fw-bold text-center" role="alert" *ngIf="errorMessage">
+                    {{ errorMessage }}
+                </div> -->
+                <div class="mb-4 mb-sm-5">
+                    <input type="email" class="form-control" name="userEmail" placeholder="Correo electrónico"
+                        id="userEmail" [(ngModel)]="userEmail" required />
+                </div>
+                <div class="mb-4 mb-sm-5">
+                    <input type="password" class="form-control" name="UserPassword" placeholder="Contraseña"
+                        id="UserPassword" [(ngModel)]="userPassword" required />
+                </div>
+                <button type="submit" class="btn" [disabled]="!loginForm.form.valid">
+                    INGRESAR
+                </button>
+                <a href="" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                    <div id="emailHelp" class="form-text fw-bold">
+                        ¿Olvidaste tu contraseña?.
+                    </div>
+                </a>
+            </form>
+            <div class="text mt-5">
+                <p>
+                    ¿Aún no perteneces a la comunidad RouteRider?.
+                    <a class="fw-bold" routerLink="/register">Registrate aquí.</a>
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- forget password modal -->
+    <!-- <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="exampleModalLabel">Restablecer contraseña</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div class="alert alert-danger fw-bold text-center" role="alert" *ngIf="errorMessage">
+                        {{ errorMessage }}
+                    </div>
+                    <form class="w-100" (ngSubmit)="getUser()" #loginForm="ngForm">
+                        <div class="mb-3">
+                            <input type="email" class="modal-input form-control" id="userRecoveryEmail" placeholder="Correo electrónico" name="userRecoveryEmail" [(ngModel)]="userRecoveryEmail" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <span class="birthday input-group-text" id="basic-addon1">Fecha nacimiento</span>
+                            <input type="date" class="modal-input form-control" name="userBirthday" aria-label="userBirthday" aria-describedby="basic-addon1" [(ngModel)]="userBirthday">
+                          </div>
+                        <div class="mb-3">
+                            <input type="password" class="modal-input form-control" id="userNewPassword" placeholder="Nueva contraseña" [(ngModel)]="userPassword">
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="modal-input form-control" id="userConfirmNewPassword" placeholder="Confirmar nueva contraseña" [(ngModel)]="userConfirmPassword">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn">RESTABLECER</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div> -->
+    <app-mobile-footer class="mobile-footer w-100 position-absolute bottom-0"></app-mobile-footer>
+</section>

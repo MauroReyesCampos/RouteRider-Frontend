@@ -1,0 +1,44 @@
+<header class="container-fluid">
+      <div class="row w-100">
+        <div class="col-5">
+          <ul  class="no-visible d-flex mt-5 mb-5" *ngIf="!ocultarLista">
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="home">Inicio</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="routes">Rutas destacadas</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="login" [ngClass]="{'disabled-link': loggedinUserName !== 'Invitado'}">Inicio de sesión</a></li>
+          </ul>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-3">
+          <ul class="no-visible d-flex mt-5 mb-5" *ngIf="!ocultarLista">
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="register">Registro</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a routerLink="contact">Contacto</a></li>
+            <li class="hover mt-1 mb-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a href="/"></a></li>
+          </ul>
+        </div>
+        <div class="col-2">
+          <ul class="d-flex mt-5 mb-5 text-end">
+            <li class="li-gest mt-1 mb-5 mx-5 mx-lg-2 mx-xl-3 mx-xxl-4">
+              <a href="#" data-bs-toggle="dropdown" aria-expanded="false" *ngIf="loggedinUserName === 'Invitado'; else userName" [ngClass]="{'disabled-link': loggedinUserName === 'Invitado'}">{{loggedinUserName}}</a>
+            </li>
+            <li class="li-img">
+              <img src="/assets/icons/person-circle.svg" alt="person-circle" class="person-circle">
+            </li>
+          </ul>
+          <ng-template #userName>
+            <div class="dropdown">
+              <a data-bs-toggle="dropdown" aria-expanded="false">{{loggedinUserName}}</a>
+              <ul class="ul dropdown-menu dropdown-menu-end text-center">
+                <li><a class="dropdown-item" routerLink="/profile">Perfil</a></li>
+                <li><a class="dropdown-item" (click)="logout()">Cerrar sesión</a></li>
+              </ul>
+          </div>
+          </ng-template>
+          <!-- <ul class="d-flex mt-5 mb-5 text-end">
+            <li class="li-gest mt-1 mb-5 mx-5 mx-lg-2 mx-xl-3 mx-xxl-4"><a [routerLink]="enableProfileLink ? 'login' : null">{{loggedinUserName}}</a></li>
+            <li class="li-img">
+              <img src="/assets/icons/person-circle.svg" alt="person-circle" class="person-circle">
+            </li>
+          </ul> -->
+        </div>
+      </div>
+</header>

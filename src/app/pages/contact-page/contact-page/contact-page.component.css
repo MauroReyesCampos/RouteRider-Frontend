@@ -1,0 +1,60 @@
+.background-img {
+    background: url('/assets/img/image7.jpg');
+    opacity: 0.55;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    top: 15%;
+    right: 0;
+    left: 0;
+}
+
+input, textarea {
+    width: 100%;
+    /* height: 40px; */
+    border-radius: 8px;
+    border: 2px solid #4C4B16;
+    background-color: #F7F1E5;
+}
+
+.btn {
+    width: 100%;
+    background-color: #e7b10a;
+    border-color: #e7b10a;
+    color: black;
+}
+
+@media (min-width: 576px) {
+    input {
+        height: 3.5rem;
+        font-size: 1.3rem;
+    }
+
+    textarea, .btn {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .container {
+        top: 20%;
+    }
+
+    input {
+        height: 3.2rem;
+        font-size: 1.2rem;
+    }
+
+    textarea, .btn {
+        font-size: 1.2rem;
+    }
+
+    .btn {
+        width: 50%;
+    }
+}

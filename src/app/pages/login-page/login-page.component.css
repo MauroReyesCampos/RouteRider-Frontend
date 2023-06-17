@@ -1,0 +1,111 @@
+.background-img {
+    background: url('/assets/img/image6-1.jpg');
+    opacity: 0.55;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.row {
+    top:15%;
+    width: 100%;
+    margin-left: 0;
+    z-index: 0;
+
+}
+
+.img-col {
+    display: none;
+}
+
+form {
+    width: 80%;
+}
+
+.text {
+    width: 80%;
+    text-align: justify;
+}
+
+input {
+    width: 100%;
+    height: 40px;
+    border-radius: 8px;
+    border: 2px solid #4C4B16;
+    background-color: #F7F1E5;
+}
+
+.btn {
+    width: 100%;
+    background-color: #e7b10a;
+    border-color: #e7b10a;
+    color: black;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+.form-text {
+    font-size: 1rem;
+}
+
+.modal-content {
+    background-color: #F7F1E5;
+}
+
+.modal-input {
+    background-color: #ffffff;
+}
+
+.birthday {
+    border-top: 2px solid #4C4B16;
+    border-left: 2px solid #4C4B16;
+    border-bottom: 2px solid #4C4B16;
+    background-color: #ffffff;
+}
+
+
+@media (min-width: 576px) {
+    input, .btn {
+        height: 50px;
+        font-size: 1.2rem;
+    }
+
+    .form-text, .text {
+        font-size: 1.3rem;
+    }
+}
+
+
+@media (min-width: 992px) {
+    .background-img {
+        background: url('/assets/img/image6.jpg');
+        opacity: 0.55;
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 100%;
+        height: 100%;
+    }
+
+    .mobile-footer {
+        display: none;
+    }
+
+    .img-col {
+        display: block;
+    }
+
+    .row {
+        top:30%;
+        width: 100%;
+        z-index: 1;
+
+    }
+    
+    form, .text {
+        width: 60%;
+    }
+}

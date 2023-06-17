@@ -1,0 +1,33 @@
+<section class="w-100 z-n1">
+    <div class="background-img position-fixed z-n1 top-0"></div>
+    <div class="container position-absolute w-100">
+            <form class="form" #loginForm="ngForm">
+                <h2 class="mt-3 mb-3 mb-sm-4 fw-bold w-100 text-center">
+                    CONTACTO
+                </h2>
+                <div class="row row-cols-1 row-cols-lg-2">
+                    <div class="mb-4 mb-sm-5">
+                        <input type="text" class="form-control" placeholder="Nombre" required>
+                    </div>
+                    <div class="mb-4 mb-sm-5">
+                        <input type="text" class="form-control" placeholder="Apellido" required> 
+                    </div>
+                </div>
+                <div class="mb-4 mb-sm-5">
+                    <input type="text" class="form-control" placeholder="Correo electrónico" required>
+                </div>
+                <div class="mb-4 mb-sm-5">
+                    <input type="text" class="form-control" placeholder="Asunto" required>
+                </div>
+                <div class="mb-4 mb-sm-5">
+                    <textarea type="text" class="form-control" rows="5" placeholder="Preguntas y/o sugerencias" required></textarea>
+                </div>
+                <div class="mb-4 mb-sm-5 text-center">
+                    <button type="submit" class="btn" [disabled]="!loginForm.form.valid">
+                        ENVIAR
+                    </button>
+                </div>
+
+            </form>
+    </div>
+</section>

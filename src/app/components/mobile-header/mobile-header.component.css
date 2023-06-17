@@ -1,0 +1,65 @@
+.disabled-link {
+    pointer-events: none;
+    color: gray;
+    cursor: default;
+  }
+
+.navbar {
+    background-color: #f7f1e5;
+}
+
+.navbar-brand {
+    width: 60%;
+}
+
+.collapse {
+    border-radius: 10px;
+    background-color: rgba(247, 241, 229, 1);
+}
+
+.icon {
+    width: 25px;
+    height: 25px;
+    margin: 10px 15px;
+}
+
+.person {
+    width: 30px;
+    height: 30px;
+}
+
+.navbar-nav {
+    font-size: 1.2rem;
+}
+
+.dropdown-menu {
+    font-size: 1.2rem;
+    background-color: rgba(247, 241, 229, 1);
+    z-index: 2;
+    border-color: rgba(247, 241, 229, 1);
+}
+
+@media (min-width: 576px) {
+    .person {
+        width: 60px;
+        height: 60px;
+    }
+
+    .navbar-toggler-icon {
+        width: 60px;
+        height: 60px;
+    }
+
+    .navbar-toggler {
+        margin-right: 15px;
+    }
+
+    .navbar-nav, .dropdown-menu {
+        font-size: 2rem;
+    }
+
+    .icon {
+        width: 50px;
+        height: 50px;
+    }
+}
